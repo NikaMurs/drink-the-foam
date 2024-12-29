@@ -1,11 +1,12 @@
 import React from 'react';
 import { getRandomItem, getRandomPenalties } from '../utils/randomize';
-import { Card, Typography, Row, Col, Button } from 'antd';
+import { Card, Typography, Row, Col, Button, Divider } from 'antd';
 import { MAPS } from '../constants/maps';
 import { DIFFICULTIES } from '../constants/difficulties';
 import { TRANSPORTS } from '../constants/transports';
 import { ALWAYS_PENALTIES, RANDOM_PENALTIES } from '../constants/penalties';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { BOTS_CARS } from '../constants/botsCars';
 
 const MainGameScreen = () => {
   const location = useLocation();
@@ -16,8 +17,10 @@ const MainGameScreen = () => {
   if (!players || players.length === 0) {
     return (
       <div style={{ textAlign: 'center', padding: '20px' }}>
-        <Typography.Title level={2}>Ошибка</Typography.Title>
-        <Typography.Paragraph>Нет данных о выбранных игроках. Вернитесь назад.</Typography.Paragraph>
+        <Typography.Title level={2} style={{ color: '#f5222d' }}>Ошибка</Typography.Title>
+        <Typography.Paragraph style={{ color: '#fff' }}>
+          Нет данных о выбранных игроках. Вернитесь назад.
+        </Typography.Paragraph>
         <Button type="primary" onClick={() => navigate('/player-selection')}>
           Назад к выбору игроков
         </Button>
@@ -29,40 +32,63 @@ const MainGameScreen = () => {
   const difficulty = getRandomItem(DIFFICULTIES);
   const playerSettings = players.map(() => ({
     transport: getRandomItem(TRANSPORTS),
-    penalties: [...ALWAYS_PENALTIES, ...getRandomPenalties(RANDOM_PENALTIES)],
+    penalties: getRandomPenalties(RANDOM_PENALTIES),
   }));
 
-  const handleRestart = () => {
-    window.location.reload();
-  };
-
   return (
-    <div style={{ padding: '20px' }}>
-      <Typography.Title level={2}>Игра началась!</Typography.Title>
-      <Typography.Paragraph><strong>Карта:</strong> {map}</Typography.Paragraph>
-      <Typography.Paragraph><strong>Сложность:</strong> {difficulty}</Typography.Paragraph>
-      <Row gutter={16}>
+    <div style={{ display: 'flex', height: '100vh', backgroundColor: '#181818' }}>
+      {/* Левая панель */}
+      <div style={{ width: '30%', padding: '20px', color: '#fff', borderRight: '2px solid #444', backgroundColor: '#fff' }}>
+        <Typography.Title level={3}>Общие настройки</Typography.Title>
+        <Divider />
+        <Typography.Paragraph>
+          <strong>Карта:</strong> {map}
+        </Typography.Paragraph>
+        <Typography.Paragraph>
+          <strong>Сложность:</strong> {difficulty}
+        </Typography.Paragraph>
+        <Typography.Paragraph>
+          <strong>Боты едут на:</strong> {getRandomPenalties(BOTS_CARS) || 'Случайно'}
+        </Typography.Paragraph>
+        <Typography.Paragraph>
+          <strong>Правила:</strong>
+          <ul style={{ paddingLeft: '20px' }}>
+            {ALWAYS_PENALTIES.map((penalty, idx) => (
+              <li key={idx}>{penalty.text || penalty}</li>
+            ))}
+          </ul>
+        </Typography.Paragraph>
+      </div>
+      {/* Правая панель */}
+      <div style={{ flex: 1, display: 'flex', flexWrap: 'wrap', gap: '20px', padding: '20px' }}>
         {playerSettings.map((settings, index) => (
-          <Col key={index} span={6}>
-            <Card title={`Игрок ${index + 1}`} bordered>
-              <Typography.Paragraph>
-                <strong>Транспорт:</strong> {settings.transport}
-              </Typography.Paragraph>
-              <Typography.Paragraph>
-                <strong>Штрафы/Бонусы:</strong>
-                <ul>
-                  {settings.penalties.map((penalty, idx) => (
-                    <li key={idx}>{penalty.text || penalty}</li>
-                  ))}
-                </ul>
-              </Typography.Paragraph>
-            </Card>
-          </Col>
+          <Card
+            key={index}
+            style={{
+              color: '#fff',
+              borderRadius: '12px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px',
+              flexBasis: 'calc(50% - 10px)', // Для двух элементов в ряду
+            }}
+          >
+            <Typography.Title level={4}>{`Игрок ${index + 1}`}</Typography.Title>
+            <Typography.Paragraph><strong>Транспорт:</strong> {settings.transport}</Typography.Paragraph>
+            <Typography.Paragraph>
+              <strong>Штрафы/Бонусы:</strong>
+              {settings.penalties ?
+                <ul style={{ paddingLeft: '20px' }}>
+                  <li>{settings.penalties}</li>
+                </ul> :
+                <></>
+              }
+            </Typography.Paragraph>
+          </Card>
         ))}
-      </Row>
-      <Button type="primary" onClick={handleRestart} style={{ marginTop: '20px' }}>
-        Перезапустить
-      </Button>
+      </div>
+
     </div>
   );
 };

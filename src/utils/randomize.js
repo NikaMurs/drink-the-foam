@@ -3,5 +3,10 @@ export function getRandomItem(array) {
 }
 
 export function getRandomPenalties(penalties) {
-    return penalties.filter(p => Math.random() * 100 <= p.probability);
+    const result = penalties.filter(p => Math.random() * 100 <= p.probability);
+    if (result.length > 0) {
+        return result[result.length - 1].text
+    } else {
+        return null
+    }
 }
