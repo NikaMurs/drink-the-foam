@@ -15,4 +15,5 @@ export const RANDOM_PENALTIES = [
     { text: 'Пьёшь три глотка пенного, но один из них выпивает другой игрок', probability: 5 },
     { text: 'Другой игрок пьёт за тебя', probability: 5 },
     { text: 'Все игроки пьют по два глотка пенного', probability: 5 },
+    { text: 'Можешь выбрать любой транспорт', probability: 10 },
 ];
