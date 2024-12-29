@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/drink-the-foam/static/css/main.69eda509.chunk.css",
-    "main.js": "/drink-the-foam/static/js/main.46780a8d.chunk.js",
-    "main.js.map": "/drink-the-foam/static/js/main.46780a8d.chunk.js.map",
+    "main.js": "/drink-the-foam/static/js/main.8c77fadd.chunk.js",
+    "main.js.map": "/drink-the-foam/static/js/main.8c77fadd.chunk.js.map",
     "runtime~main.js": "/drink-the-foam/static/js/runtime~main.6cdd2ba0.js",
     "runtime~main.js.map": "/drink-the-foam/static/js/runtime~main.6cdd2ba0.js.map",
     "static/js/2.0d3afb6d.chunk.js": "/drink-the-foam/static/js/2.0d3afb6d.chunk.js",
     "static/js/2.0d3afb6d.chunk.js.map": "/drink-the-foam/static/js/2.0d3afb6d.chunk.js.map",
     "index.html": "/drink-the-foam/index.html",
-    "precache-manifest.0dbe4b6c6eab2b8c311cbb15a1b8ca90.js": "/drink-the-foam/precache-manifest.0dbe4b6c6eab2b8c311cbb15a1b8ca90.js",
+    "precache-manifest.a30f89108fa6f79674b555c34d69f894.js": "/drink-the-foam/precache-manifest.a30f89108fa6f79674b555c34d69f894.js",
     "service-worker.js": "/drink-the-foam/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/drink-the-foam/static/css/main.69eda509.chunk.css.map"
   }

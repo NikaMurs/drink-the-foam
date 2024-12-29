@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f42a123ea1e188b5ebb5ede1293b15d5",
+    "revision": "48dae72a86fa4f562f8e7b0e5f3cf4e5",
     "url": "/drink-the-foam/index.html"
   },
   {
-    "revision": "e6ac45e6bda44589cfa5",
+    "revision": "c87072f1aab21d5c9851",
     "url": "/drink-the-foam/static/css/main.69eda509.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/drink-the-foam/static/js/2.0d3afb6d.chunk.js"
   },
   {
-    "revision": "e6ac45e6bda44589cfa5",
-    "url": "/drink-the-foam/static/js/main.46780a8d.chunk.js"
+    "revision": "c87072f1aab21d5c9851",
+    "url": "/drink-the-foam/static/js/main.8c77fadd.chunk.js"
   },
   {
     "revision": "7df550e786095f22520e",
