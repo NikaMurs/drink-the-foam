@@ -1,1 +1,1 @@
-export const DIFFICULTIES = ['Легкая', 'Средняя', 'Сложная', 'Экстрим'];
+export const DIFFICULTIES = ['Новичок', 'Профи', 'Ветеран'];

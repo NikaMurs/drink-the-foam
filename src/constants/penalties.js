@@ -8,7 +8,7 @@ export const RANDOM_PENALTIES = [
     { text: 'Не пить пенное', probability: 5 },
     { text: 'Пьёшь два глотка пенного', probability: 5 },
     { text: 'Пьёшь три глотка пенного', probability: 3 },
-    { text: 'Пьёшь пол стопки крепкого', probability: 2 },
+    { text: 'Пьёшь пол стопки крепкого один раз за гонку', probability: 2 },
     { text: 'Все игроки пьют по одному глотку пенного', probability: 10 },
     { text: 'Разрешён перезапуск гонки для тебя', probability: 5 },
     { text: 'Пьёшь два глотка пенного, но один из них выпивает другой игрок', probability: 5 },
