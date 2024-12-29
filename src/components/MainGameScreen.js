@@ -1,12 +1,13 @@
 import React from 'react';
 import { getRandomItem, getRandomPenalties } from '../utils/randomize';
-import { Card, Typography, Row, Col, Button, Divider } from 'antd';
+import { Card, Typography, Button, Divider } from 'antd';
 import { MAPS } from '../constants/maps';
 import { DIFFICULTIES } from '../constants/difficulties';
 import { TRANSPORTS } from '../constants/transports';
 import { ALWAYS_PENALTIES, RANDOM_PENALTIES } from '../constants/penalties';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BOTS_CARS } from '../constants/botsCars';
+import { ReloadOutlined } from '@ant-design/icons';
 
 const MainGameScreen = () => {
   const location = useLocation();
@@ -39,7 +40,15 @@ const MainGameScreen = () => {
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#181818' }}>
       {/* Левая панель */}
       <div style={{ width: '30%', padding: '20px', color: '#fff', borderRight: '2px solid #444', backgroundColor: '#fff' }}>
-        <Typography.Title level={3}>Общие настройки</Typography.Title>
+        <Typography.Title level={3}>
+          Общие настройки
+          <Button
+            icon={<ReloadOutlined />}
+            type="text"
+            style={{ color: '#181818' }}
+            onClick={() => window.location.reload()}
+          />
+        </Typography.Title>
         <Divider />
         <Typography.Paragraph>
           <strong>Карта:</strong> {map}
@@ -88,7 +97,6 @@ const MainGameScreen = () => {
           </Card>
         ))}
       </div>
-
     </div>
   );
 };
